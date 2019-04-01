@@ -29,15 +29,9 @@ function powerCalculator(base, exp) {
   } else {
     return base * powerCalculator(base, exp - 1);
   }
-  // if (exp === 0) {
-  //   return 1;
-  // } //take base and recurse
-  // if (exp > 0) {
-  //   return base * powerCalculator(base, exp - 1);
-  // }
 }
 
-console.log(powerCalculator(10, -2));
+// console.log(powerCalculator(10, -2));
 
 
 // 3. Reverse String
@@ -67,19 +61,40 @@ function triangular(n) {
   }
 }
 
-console.log(triangular(1));
+// console.log(triangular(1));
 
 
 // 5. String Splitter
 
 function splitter(string, separator) {
-  // input: string, separator 
+  // input: string, separator 02/20/2000
   // output: string without separator
-  if (string === '') {
+  if (string.length === 0) {
     return '';
-  } else if (string.slice(0) !== separator) {
-    return splitter(string.slice(1));
+  } else if (string[0] === separator) {
+    return splitter(string.slice(1), separator)
   } else {
-    // come back later
+    return string[0] + splitter(string.slice(1), separator)
   }
+} 
+
+// console.log(splitter('02/20/2000', '/'));
+
+// 6. Fibonacci
+
+function fib(num){
+  //base case 1
+  //add fib(n-2)+ fib(n-1)
+  if(num === 0){
+    return;
+  }
+  else if (num === 1){
+    return 1;
+  }
+  else if (num === 2){
+    return 1;
+  }
+  return fib(num-1)+fib(num-2);
 }
+
+// console.log(fib(7));
