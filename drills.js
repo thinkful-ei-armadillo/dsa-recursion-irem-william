@@ -46,7 +46,7 @@ function reverseString(string) {
   }
 }
 
-console.log(reverseString(''));
+// console.log(reverseString(''));
 
 
 // 4. nth Triangular Number
@@ -72,9 +72,9 @@ function splitter(string, separator) {
   if (string.length === 0) {
     return '';
   } else if (string[0] === separator) {
-    return splitter(string.slice(1), separator)
+    return splitter(string.slice(1), separator);
   } else {
-    return string[0] + splitter(string.slice(1), separator)
+    return string[0] + splitter(string.slice(1), separator);
   }
 } 
 
@@ -98,3 +98,90 @@ function fib(num){
 }
 
 // console.log(fib(7));
+
+
+// 7. Factorial
+
+function factorial(n) {
+  // input: number n(5)
+  // output: number = 120
+  if (n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+// console.log(factorial(5));
+
+
+// 8. Find a way out of the maze
+
+let maze = [
+  [' ', ' ', ' ', '*', ' ', ' ', ' '],
+  ['*', '*', ' ', '*', ' ', '*', ' '],
+  [' ', ' ', ' ', ' ', ' ', ' ', ' '],
+  [' ', '*', '*', '*', '*', '*', ' '],
+  [' ', ' ', ' ', ' ', ' ', ' ', 'e']
+];
+
+// column & rows
+
+// let steps = '';
+// traverse(column, row); 
+// if(maze[column][row] === 'exit')
+//   return;
+// if ([column][row] === ' ') {
+//   traverse(column + 1, row);
+// }
+// if ([column][row] === '*') {
+//   stepst += 'D';
+//   traverse(column, row + 1);
+// }
+
+
+function exitMaze(maze) {
+  // input: maze
+  // output: RRDDLLDDRRRRRR
+//   if (maze[0] === 'e') {
+//     return '';
+//   } else if (maze[0] === ' ') {
+//     return 'R' + exitMaze(maze.slice(1));
+//   } else if (maze[0] === '*') {
+//     return 'D' || 'R' + exitMaze(maze.slice(1));
+//   } else {
+//     return 'D';
+//   }
+}
+
+// console.log(exitMaze(maze));
+
+
+// 10. Anagrams
+
+function anagrams(prefix, word) {
+  // input: string ('east')
+  // output: list of strings (24 strings)
+  // let result = [];
+  // base case
+  if (word === '') 
+    return [prefix];
+  let words = [];
+  for (let i = 0; i < word.length; i++) {
+    words = [...anagrams(prefix + word[i], word.slice(0, i) + word.slice(i+1))];
+  }
+  return words;
+  // console.log(word.slice[-1]);
+  // return anagram(word.slice[-1]) + word.slice(0,1);
+}
+console.log(anagrams('', 'cat'));
+
+
+// for (let i = 0; i < word.length; i++) {
+//   let currentChar = word.substring(i, i+1);
+//   // console.log(currentChar);
+//   let prevChar = word.substring(0, i);
+//   // console.log(prevChar);
+//   let nextChar = word.substring(i + 1);
+//   // console.log(nextChar);
+//   anagram(prefix + currentChar, prevChar + nextChar);
+
