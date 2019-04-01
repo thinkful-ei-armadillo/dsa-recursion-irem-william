@@ -23,8 +23,7 @@ function powerCalculator(base, exp) {
   //base case when exponent = 0
   //cause then it will just return base
   if (exp < 0) {
-    console.log('exponent should be >= 0');
-    return '';
+    return 'exponent should be >= 0';
   } else if (exp === 0) {
     return 1;
   } else {
